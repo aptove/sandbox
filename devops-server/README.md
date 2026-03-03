@@ -120,13 +120,13 @@ Cloudflared uses **outbound** connections only — UFW's `allow outgoing` rule c
 
 ```bash
 # Dump DOM of a page
-chromium-browser --headless --no-sandbox --dump-dom https://example.com
+chromium --headless --no-sandbox --dump-dom https://example.com
 
 # Take a screenshot
-chromium-browser --headless --no-sandbox --screenshot=/workspace/shot.png https://example.com
+chromium --headless --no-sandbox --screenshot=/workspace/shot.png https://example.com
 
 # Print to PDF
-chromium-browser --headless --no-sandbox --print-to-pdf=/workspace/page.pdf https://example.com
+chromium --headless --no-sandbox --print-to-pdf=/workspace/page.pdf https://example.com
 ```
 
 > `--no-sandbox` is required when running as a non-root user inside a container.

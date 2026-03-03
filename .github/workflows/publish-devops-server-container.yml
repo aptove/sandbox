@@ -59,7 +59,7 @@ jobs:
             cargo --version
             node --version
             npm --version
-            chromium-browser --version || chromium --version
+            chromium --version
             ufw --version
             fail2ban-client --version
             unattended-upgrades --help > /dev/null
@@ -109,7 +109,7 @@ jobs:
       - name: Test headless Chromium
         run: |
           docker run --rm devops-server:test bash -c "
-            chromium-browser --headless --no-sandbox --dump-dom https://example.com 2>/dev/null \
+            chromium --headless --no-sandbox --dump-dom https://example.com 2>/dev/null \
               | grep -q '<html' && echo 'Headless Chromium OK'
           "
 

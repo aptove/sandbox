@@ -18,11 +18,10 @@ fi
 
 # ── Fail2ban ──────────────────────────────────────────────────────────────────
 if command -v fail2ban-server >/dev/null 2>&1; then
-    # fail2ban needs /var/run/fail2ban
     mkdir -p /var/run/fail2ban
     fail2ban-server -b -s /var/run/fail2ban/fail2ban.sock \
                        -p /var/run/fail2ban/fail2ban.pid \
-                       -l /var/log/fail2ban.log 2>/dev/null || true
+                       -l /var/log/fail2ban.log >/dev/null 2>&1 || true
 fi
 
 # ── Hand off ──────────────────────────────────────────────────────────────────

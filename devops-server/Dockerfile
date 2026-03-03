@@ -26,6 +26,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
       unzip \
       git \
       build-essential \
+      software-properties-common \
       # DBus
       dbus \
       dbus-user-session \
@@ -82,9 +83,12 @@ RUN set -eux; \
   && chmod +x /usr/local/bin/cloudflared
 
 # ── 6. Headless Chromium ──────────────────────────────────────────────────────
-RUN apt-get update && apt-get install -y --no-install-recommends \
-      chromium-browser \
-      chromium-browser-l10n \
+# chromium-browser on Ubuntu 24.04 is a snap stub — use ppa:xtradeb/apps
+# which ships a real .deb for both amd64 and arm64.
+RUN add-apt-repository ppa:xtradeb/apps -y \
+  && apt-get update \
+  && apt-get install -y --no-install-recommends \
+      chromium \
       fonts-liberation \
       libatk-bridge2.0-0 \
       libgtk-3-0 \
