@@ -104,12 +104,8 @@ RUN printf 'APT::Periodic::Update-Package-Lists "1";\nAPT::Periodic::Unattended-
       > /etc/apt/apt.conf.d/50unattended-upgrades-devops
 
 # ── 8. UFW pre-configuration ──────────────────────────────────────────────────
-# Rules are stored but not enabled at build time — entrypoint enables UFW.
-RUN ufw --force reset \
-  && ufw default deny incoming \
-  && ufw default allow outgoing \
-  && ufw allow 22/tcp comment 'SSH' \
-  && ufw allow 41641/udp comment 'Tailscale WireGuard'
+# UFW rules require iptables which is unavailable during cross-arch builds.
+# Rules are applied at container start by entrypoint.sh instead.
 
 # ── 9. Fail2ban configuration ────────────────────────────────────────────────
 RUN printf '[DEFAULT]\nbantime  = 1h\nfindtime = 10m\nmaxretry = 5\n\n[sshd]\nenabled = true\n' \

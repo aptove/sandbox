@@ -11,9 +11,15 @@ if [ ! -e /run/dbus/system_bus_socket ]; then
 fi
 
 # ── UFW firewall ──────────────────────────────────────────────────────────────
-# Enable UFW non-interactively. Requires --cap-add=NET_ADMIN on the host.
+# Configure and enable UFW at runtime — iptables is unavailable during build.
+# Requires --cap-add=NET_ADMIN on the host.
 if command -v ufw >/dev/null 2>&1; then
-    ufw --force enable 2>/dev/null || true
+    ufw --force reset >/dev/null 2>&1 || true
+    ufw default deny incoming >/dev/null 2>&1 || true
+    ufw default allow outgoing >/dev/null 2>&1 || true
+    ufw allow 22/tcp comment 'SSH' >/dev/null 2>&1 || true
+    ufw allow 41641/udp comment 'Tailscale WireGuard' >/dev/null 2>&1 || true
+    ufw --force enable >/dev/null 2>&1 || true
 fi
 
 # ── Fail2ban ──────────────────────────────────────────────────────────────────
