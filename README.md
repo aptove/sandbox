@@ -8,4 +8,5 @@
 * Aptove Agent
 * Firewalls, SSH, Tailscale
 * Allow's sharing folder with the host
+* GitHub CLI
 * Skills and MCP servers are loaded on demand
