@@ -1,12 +1,5 @@
 ## Sandbox Containers
 
-1- devops-server container
+1- [devops-server](https://github.com/aptove/sandbox/tree/main/devops-server) 
 
-* Stable Ubuntu Server
-* Rust, Node.js, Python 3
-* Chrome Headless Browser
-* Aptove Agent
-* Firewalls, SSH, Tailscale
-* Allow's sharing folder with the host
-* GitHub CLI
-* Skills and MCP servers are loaded on demand
+Ubuntu Server with Aptove AI Agent and other nuts and bolts.
