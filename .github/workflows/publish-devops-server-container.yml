@@ -60,6 +60,8 @@ jobs:
             node --version
             npm --version
             chromium --version
+            python3 --version
+            pip3 --version
             ufw --version
             fail2ban-client --version
             unattended-upgrades --help > /dev/null

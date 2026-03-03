@@ -38,6 +38,10 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
       # Auto security updates
       unattended-upgrades \
       apt-listchanges \
+      # Python 3
+      python3 \
+      python3-pip \
+      python3-venv \
       # Misc utilities
       jq \
       iputils-ping \

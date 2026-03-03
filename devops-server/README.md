@@ -14,6 +14,7 @@ Works with **Docker** (linux/amd64 + linux/arm64) and **Apple's native `containe
 | [Rust](https://www.rust-lang.org) | `rustc`, `cargo`, `rustfmt`, `clippy` (stable) |
 | [Node.js LTS](https://nodejs.org) | Latest LTS + npm |
 | [Chromium](https://www.chromium.org) | Headless browser automation |
+| Python 3 | `python3`, `pip3`, `venv` |
 | [UFW](https://help.ubuntu.com/community/UFW) | Firewall — default deny inbound |
 | [Fail2ban](https://www.fail2ban.org) | SSH brute-force protection |
 | [unattended-upgrades](https://wiki.debian.org/UnattendedUpgrades) | Automatic security patches |
