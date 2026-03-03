@@ -54,7 +54,7 @@ docker run --rm -it \
 docker run --rm -it \
   --cap-add=NET_ADMIN \
   --device /dev/net/tun \
-  -v /path/to/project:/workspace \
+  -v "$HOME/Library/Application Support/Aptove":/root/.config/Aptove \
   ghcr.io/aptove/devops-server:latest
 ```
 
@@ -72,8 +72,7 @@ container run --rm -it \
 
 # With host folder sharing
 container run --rm -it \
-  --cap-add=NET_ADMIN \
-  -v /path/to/project:/workspace \
+  -v "$HOME/Library/Application Support/Aptove":/root/.config/Aptove \
   ghcr.io/aptove/devops-server:latest
 ```
 
