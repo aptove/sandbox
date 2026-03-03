@@ -58,7 +58,7 @@ docker run --rm -it \
   ghcr.io/aptove/devops-server:latest
 ```
 
-> **Note:** `--cap-add=NET_ADMIN` and `--device /dev/net/tun` are required for both Tailscale (tun interface) and UFW (iptables rule management).
+> **Note:** `--cap-add=NET_ADMIN` and `--device /dev/net/tun` are required for Tailscale and UFW on Docker. These flags are not supported by Apple's `container` CLI — use `run.sh` which handles this automatically per runtime.
 
 ---
 

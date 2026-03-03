@@ -30,8 +30,6 @@ COMMON_FLAGS=(
     --rm
     --interactive
     --tty
-    # Required for UFW (iptables) and Tailscale (tun device)
-    --cap-add=NET_ADMIN
 )
 
 VOLUME_FLAGS=()
@@ -54,16 +52,16 @@ fi
 
 # ── Launch ────────────────────────────────────────────────────────────────────
 if [ "$RUNTIME" = "docker" ]; then
+    # --cap-add and --device are Docker-specific; not supported by Apple container CLI.
     docker run \
         "${COMMON_FLAGS[@]}" \
+        --cap-add=NET_ADMIN \
         --device /dev/net/tun \
         "${VOLUME_FLAGS[@]}" \
         "$IMAGE" \
         "${USER_CMD[@]+"${USER_CMD[@]}"}"
 
 elif [ "$RUNTIME" = "container" ]; then
-    # Apple's container CLI uses the same flag names for volumes.
-    # --device is not required on Apple container (virtualised network).
     container run \
         "${COMMON_FLAGS[@]}" \
         "${VOLUME_FLAGS[@]}" \
