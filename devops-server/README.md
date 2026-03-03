@@ -80,6 +80,33 @@ container run --rm -it \
 
 ---
 
+## Connecting to a running container
+
+### Apple container CLI
+
+List running containers to get the ID:
+
+```bash
+container list
+```
+
+Then attach a shell:
+
+```bash
+container exec -it <container-id> /bin/bash
+```
+
+No credentials are required — `exec` attaches directly to the container process as a local privileged operation. Authentication only applies to network access (SSH, Tailscale, etc.).
+
+### Docker
+
+```bash
+docker ps
+docker exec -it <container-id> /bin/bash
+```
+
+---
+
 ## Tool usage
 
 ### Tailscale
