@@ -54,7 +54,7 @@ docker run --rm -it \
 docker run --rm -it \
   --cap-add=NET_ADMIN \
   --device /dev/net/tun \
-  -v "$HOME/Library/Application Support/Aptove":/home/developer/.config/Aptove \
+  -v "$HOME/Library/Application Support/Aptove":/home/developer/.local/share/Aptove \
   ghcr.io/aptove/devops-server:latest
 ```
 
@@ -72,7 +72,7 @@ container run --rm -it \
 
 # With host folder sharing
 container run --rm -it \
-  -v "$HOME/Library/Application Support/Aptove":/home/developer/.config/Aptove \
+  -v "$HOME/Library/Application Support/Aptove":/home/developer/.local/share/Aptove \
   ghcr.io/aptove/devops-server:latest
 ```
 
