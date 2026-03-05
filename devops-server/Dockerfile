@@ -44,6 +44,8 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
       python3-venv \
       # Misc utilities
       jq \
+      nano \
+      vim \
       iputils-ping \
       net-tools \
       procps \
